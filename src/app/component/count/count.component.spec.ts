@@ -42,7 +42,7 @@ describe('CountComponent', () => {
         expect(badgeSpanElement.nativeElement.textContent).toEqual(testCount.toString());
     });
 
-    it('should emit onButtonClick event on button click', () => {
+    it('should emit true on button click', () => {
         spyOn(component.onButtonClick, 'emit');
         const buttonElement = fixture.debugElement.nativeElement.querySelector('p-button');
         buttonElement.click();
