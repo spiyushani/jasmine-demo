@@ -2,8 +2,6 @@ import {CountryService} from './country.service';
 import {Country} from '../model/country';
 import {asyncData, asyncError} from '../testing/async-test-helper';
 import {HttpErrorResponse} from '@angular/common/http';
-import {getTestBed, TestBed} from '@angular/core/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 let httpClientSpy: { get: jasmine.Spy };
 let countryService: CountryService;
@@ -17,13 +15,6 @@ describe('CountryService', () => {
         {name: 'India', capital: 'New Delhi'}
     ];
     beforeEach(async () => {
-        TestBed.configureTestingModule({
-            imports: [
-                HttpClientTestingModule
-            ]
-        });
-        const injector = getTestBed();
-        const httpMock = injector.get(HttpClientTestingModule);
         httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
         countryService = new CountryService(httpClientSpy as any);
         httpClientSpy.get.and.returnValue(asyncData(expectedCountries));

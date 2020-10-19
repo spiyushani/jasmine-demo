@@ -1,4 +1,4 @@
-import {ComponentFixture, fakeAsync, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CountComponent} from './count.component';
 import {By} from '@angular/platform-browser';
@@ -42,11 +42,11 @@ describe('CountComponent', () => {
         expect(badgeSpanElement.nativeElement.textContent).toEqual(testCount.toString());
     });
 
-    it('should emit onButtonClick event on button click', fakeAsync(() => {
+    it('should emit onButtonClick event on button click', () => {
         spyOn(component.onButtonClick, 'emit');
         const buttonElement = fixture.debugElement.nativeElement.querySelector('p-button');
         buttonElement.click();
         fixture.detectChanges();
         expect(component.onButtonClick.emit).toHaveBeenCalledWith(true);
-    }));
+    });
 });
