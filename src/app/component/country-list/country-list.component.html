@@ -1,0 +1,18 @@
+<app-count [label]="'Countries'" [count]="countries?.length" (onButtonClick)="reload($event)"></app-count>
+<!--Table-->
+<p-table [columns]="cols" [value]="countries">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
